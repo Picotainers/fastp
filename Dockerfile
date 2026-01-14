@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim AS builder
+FROM debian:bullseye-slim AS builder 
 
 RUN apt-get update && \
    apt-get install -y upx-ucl git libisal-dev libdeflate-dev gcc binutils make g++ autoconf automake
