@@ -1,9 +1,9 @@
-FROM debian:bullseye-slim AS builder 
+FROM debian:trixie-slim AS builder 
 
 RUN apt-get update && \
-   apt-get install -y upx-ucl git libisal-dev libdeflate-dev gcc binutils make g++ autoconf automake
+   apt-get install -y upx-ucl git libisal-dev libdeflate-dev gcc binutils make g++ autoconf automake libhwy-dev
 
-RUN git clone https://github.com/OpenGene/fastp && \
+RUN git clone https://github.com/opengene/fastp && \
    cd fastp && \
    make -j && \
    for LIB in $(ldd fastp | awk '{if (match($3,"/")){ print $3 }}'); do  LIB_NAME=$(basename "$LIB") cp "$LIB" "./$LIB_NAME"; done && \
