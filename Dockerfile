@@ -19,5 +19,6 @@ COPY --from=builder /fastp/libisal.so.2 /lib/x86_64-linux-gnu/
 COPY --from=builder /fastp/libdeflate.so.0 /lib/x86_64-linux-gnu/
 COPY --from=builder /fastp/libstdc++.so.6 /lib/x86_64-linux-gnu/
 COPY --from=builder /fastp/libgcc_s.so.1 /lib/x86_64-linux-gnu/
+COPY --from=builder /fastp/libhwy.so.1 /lib/x86_64-linux-gnu/
 
 ENTRYPOINT ["/usr/local/bin/fastp"]
